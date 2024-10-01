@@ -4,18 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
-    <link rel="stylesheet" href="Styles.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="weather-container">
+    <header>
         <h1>Weather App</h1>
-        <div class="search">
+        <p>Get the current weather for your city</p>
+    </header>
+    
+    <main class="main-content">
+        <section class="search-section">
             <input type="text" id="city" placeholder="Enter city name" />
             <button onclick="getWeather()">Get Weather</button>
-        </div>
-        <div class="weather-info" id="weather-info"></div>
-    </div>
+        </section>
+        
+        <section class="weather-section" id="weather-section">
+            <div class="weather-card" id="weather-card" style="display: none;">
+                <h2 id="city-name"></h2>
+                <p id="temperature"></p>
+                <p id="description"></p>
+            </div>
+            <div class="loading" id="loading" style="display: none;">
+                <p>Loading...</p>
+            </div>
+            <div class="error-message" id="error-message" style="display: none;">
+                <p>City not found. Please try again.</p>
+            </div>
+        </section>
+    </main>
 
-    <script src="Work.js"></script>
+    <footer>
+        <p>Weather data provided by <a href="https://openweathermap.org/">OpenWeather</a></p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
