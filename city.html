@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Weather</title>
+    <link rel="stylesheet" href="city.css">
+</head>
+<body>
+    <header>
+        <h1 id="city-name"></h1>
+        <button onclick="goBack()">Go Back</button>
+    </header>
+
+    <main class="city-info">
+        <div class="loading" id="loading" style="display: none;">
+            <p>Loading...</p>
+        </div>
+        <div class="error-message" id="error-message" style="display: none;">
+            <p>City not found. Please try again.</p>
+        </div>
+        <div class="weather-details" id="weather-details" style="display: none;">
+            <p id="temperature"></p>
+            <p id="description"></p>
+            <canvas id="temperatureChart"></canvas>
+        </div>
+    </main>
+
+    <footer>
+        <p>Weather data provided by <a href="https://openweathermap.org/">OpenWeather</a></p>
+    </footer>
+
+    <script src="city.js"></script>
+</body>
+</html>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
@@ -17,18 +18,23 @@
             <input type="text" id="city" placeholder="Enter city name" />
             <button onclick="getWeather()">Get Weather</button>
         </section>
-        
-        <section class="weather-section" id="weather-section">
-            <div class="weather-card" id="weather-card" style="display: none;">
-                <h2 id="city-name"></h2>
-                <p id="temperature"></p>
-                <p id="description"></p>
+
+        <section class="city-cards">
+            <div class="city-card" onclick="navigateToCity('Bangalore')">
+                <h3>Bangalore</h3>
+                <canvas id="chartBangalore"></canvas>
             </div>
-            <div class="loading" id="loading" style="display: none;">
-                <p>Loading...</p>
+            <div class="city-card" onclick="navigateToCity('Mumbai')">
+                <h3>Mumbai</h3>
+                <canvas id="chartMumbai"></canvas>
             </div>
-            <div class="error-message" id="error-message" style="display: none;">
-                <p>City not found. Please try again.</p>
+            <div class="city-card" onclick="navigateToCity('Chennai')">
+                <h3>Chennai</h3>
+                <canvas id="chartChennai"></canvas>
+            </div>
+            <div class="city-card" onclick="navigateToCity('Kolkata')">
+                <h3>Kolkata</h3>
+                <canvas id="chartKolkata"></canvas>
             </div>
         </section>
     </main>
