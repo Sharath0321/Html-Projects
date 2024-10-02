@@ -3,33 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>City Weather</title>
+    <title>City Details</title>
     <link rel="stylesheet" href="city.css">
 </head>
 <body>
     <header>
-        <h1 id="city-name"></h1>
-        <button onclick="goBack()">Go Back</button>
+        <h1>City Details</h1>
     </header>
-
-    <main class="city-info">
-        <div class="loading" id="loading" style="display: none;">
-            <p>Loading...</p>
-        </div>
-        <div class="error-message" id="error-message" style="display: none;">
-            <p>City not found. Please try again.</p>
-        </div>
-        <div class="weather-details" id="weather-details" style="display: none;">
-            <p id="temperature"></p>
-            <p id="description"></p>
-            <canvas id="temperatureChart"></canvas>
-        </div>
+    
+    <main class="city-details">
+        <h2 id="city-name"></h2>
+        <p id="city-weather"></p>
+        <!-- Add more city details here -->
     </main>
 
-    <footer>
-        <p>Weather data provided by <a href="https://openweathermap.org/">OpenWeather</a></p>
-    </footer>
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const city = urlParams.get('city');
 
-    <script src="city.js"></script>
+        document.getElementById('city-name').innerText = city;
+
+        // Make an API call to fetch the city weather data
+        fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=YOUR_API_KEY`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('city-weather').innerText = `Current weather: ${data.weather[0].description} (${data.main.temp}°C)`;
+            })
+            .catch(error => console.error(error));
+    </script>
 </body>
 </html>
